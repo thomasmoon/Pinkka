@@ -1,0 +1,8 @@
+
+    <div class="well sidebar-nav">
+        <ul class="nav">
+          <% _.each(actions, function (action) { %>
+            <li><a href="<%=action.path %>"><span class="glyphicon glyphicon-<%=action.icon %>"></span> <%=action.name %></a></li>
+          <% }) %>
+        </ul>
+    </div><!--/.well -->

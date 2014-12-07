@@ -1,0 +1,25 @@
+
+
+<div class="btn-toolbar">
+  <div class="btn-group btn-group-justified" data-toggle="buttons">
+    <% _.each(sails.config.imageTypes, function(type) { %>
+    <label class="btn btn-lg btn-default <% if (req.session.imagePreference == type.name) { %> <%="active"%> <% } %>"><span class="glyphicon glyphicon-<%=type.icon%>"  title="<%= type.label %>"></span><input type="radio" name="type" id="<%= type.name %>"></label>
+    <% }) %>
+  </div>
+</div>
+
+
+  <div class="well sidebar-nav">
+
+    <form id="setPrimaryLanguage" role="form" action="/<%=sails.config.collection?sails.config.collection.path:'collection'%>/setPrimaryLanguage" method="post" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="primaryLanguage">Primary Language</label>
+      <select id="primaryLanguage" name="primaryLanguage" class="form-control" onchange="this.form.submit()">
+
+        <% _.each(sails.config.languages, function (lang) { %>
+        <option value="<%=lang.short%>" <%=req.session.primaryLanguage.short==lang.short?'selected':''%>><%=lang.label%></option>
+        <% }) %>
+      </select>
+      </div>
+    </form>
+  </div>

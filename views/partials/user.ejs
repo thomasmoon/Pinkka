@@ -1,0 +1,21 @@
+
+  <div class="well sidebar-nav">
+
+    <ul id="actions" class="nav">
+      <li><a href="#" onclick="javascript:$('#actions').hide(); $('#login').show(); $('#username').focus(); return false;"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+
+    <form id="login" role="form" action="/user/login" method="post" enctype="multipart/form-data" style="display: none;">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" id="username" name="username">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" name="password">
+    </div>
+
+    <button type="submit" class="btn btn-success">Login</button>
+    <button type="button" class="btn btn-default" onclick="javascript:$('#login').hide(); $('#actions').show(); return false;">Cancel</button>
+    </form>
+  </div>

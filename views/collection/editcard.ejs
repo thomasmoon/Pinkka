@@ -1,0 +1,149 @@
+
+
+            <div class="container well images">
+
+                <h3>Images</h3>
+
+              <div>
+
+              <% _.each(card.images, function (image) { %>
+
+                    <div class="col-md-4 thumbnail">
+
+                      <% if (image.name) { %>
+                      <img src="/image/resize?imageName=<%= image.name.replace('.', '-resized-200px.') %>" alt="<%= image.card %>">
+                      <% } %>
+
+                      <div class="actions">
+                        <a class="btn btn-md btn-default" href="#" onclick="$('form.edit-image').show().removeClass('hidden'); $(this).parent().hide(); return false;">Edit</a>
+                        <a class="btn btn-md btn-danger" href="#" onclick="$(this).parent().siblings('.confirm').show().removeClass('hidden'); $(this).parent().hide(); return false;">Delete</a>
+                      </div>
+
+                      <div class="confirm hidden">
+                        <p>Are you sure you want to delete this image?</p>
+                        <button type="button" class="btn btn-md btn-danger" href="/image/destroy/<%= image.id %>">Yes</button>
+                        <button type="button" class="btn btn-md btn-default" onclick="$(this).parent().siblings('.actions').show().removeClass('hidden'); $(this).parent().hide(); return false;">Cancel</button>
+                      </div>
+
+                        <form class="edit-image hidden" role="form" action="/image/update" method="post" enctype="multipart/form-data">
+                          <input type="hidden" name="id" value="<%- image.id %>">
+                          <input type="hidden" name="card" value="<%- card.id %>">
+
+
+                          <div class="form-group btn-group btn-group-justified" data-toggle="buttons">
+                            <% _.each(sails.config.imageTypes, function(imageType) { %>
+                            <label class="btn btn-md btn-default <% if (image.type == imageType.name) { %> <%="active"%> <% } %>"><input type="radio" name="imageType" value="<%= imageType.name %>" <% if (image.type == imageType.name) { %><%="checked"%><% } %>><span class="glyphicon glyphicon-<%=imageType.icon%>"  title="<%= imageType.labelOne %>"></span></label>
+                            <% }) %>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="sourceInfo">Source</label>
+                            <input type="text" class="form-control input-sm" id="sourceInfo" name="sourceInfo" value="<%= image.sourceInfo?image.sourceInfo:'' %>">
+                          </div>
+
+                          <div class="form-group">
+                            <label for="sourceUrl">Url</label>
+                            <input type="text" class="form-control input-sm" name="sourceUrl" name="sourceUrl" value="<%= image.sourceUrl?image.sourceUrl:'' %>">
+                          </div>
+
+                          <div class="editActions">
+                            <button type="submit" class="btn btn-md btn-success" href="/image/update" onclick="console.log($(this).parent().parent());">Save</button>
+                            <button type="button" class="btn btn-md btn-default" onclick="$(this).parent().parent().siblings('.actions').show(); $(this).parent().parent().hide(); return false;">Cancel</button>
+                          </div>
+                        </form>
+
+                    </div>
+
+              <% }) %>
+
+              </div><!--/row-->
+
+              <div class="clearfix"></div>
+
+              <hr />
+
+              <button id="triggerUpload" type="button" class="btn btn-success btn-lg"
+                      onclick="$(this).hide(); $('.new-image').show().removeClass('hide');">
+                <span class="glyphicon glyphicon-floppy-open"></span>
+                Upload</button>
+
+
+              <div class="new-image hide">
+
+                <h3>Upload Image</h3>
+
+                <form class="row" role="form" action="/image/create/" method="post" enctype="multipart/form-data">
+
+                  <div class="col-md-6">
+
+                    <div class="form-group">
+                      <input type="hidden" name="card" value="<%- card.id %>">
+                      <input type="file" name="images[]">
+                    </div>
+
+                    <div class="btn-toolbar">
+                      <div class="btn-group btn-group-justified" data-toggle="buttons">
+                        <% _.each(sails.config.imageTypes, function(imageType, index) { %>
+                        <label class="btn btn-md btn-default  <% if (index == 0) { %> <%="active"%> <% } %>"><span class="glyphicon glyphicon-<%=imageType.icon%>"  title="<%= imageType.labelOne %>"></span><input type="radio" name="imageType" value="<%= imageType.name %>" <% if (index == 0) { %><%="checked"%><% } %>></label>
+                        <% }) %>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="imageSrcInfo[]">Source</label>
+                      <input type="name" class="form-control input-sm" name="sourceInfo">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="imageSrcUrl[]">Url</label>
+                      <input type="name" class="form-control input-sm" name="sourceUrl">
+                    </div>
+
+
+                    <button type="submit" class="btn btn-success btn-lg"
+                            onclick="">
+                      <span class="glyphicon glyphicon-floppy-open"></span>
+                      Upload</button>
+
+                    <button type="button" class="btn btn-default btn-lg"
+                            onclick="$('.new-image').hide(); $('#triggerUpload').show();">Cancel</button>
+
+
+                  </div>
+
+                </form>
+
+              </div>
+
+
+            </div>
+
+
+            <div class="container well">
+
+              <h3>Basic Info</h3>
+
+              <form role="form" action="/<%= sails.config.collection.path %>/card/update/<%=card.id%>" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="<%- card.id %>">
+
+                <div class="form-group">
+                  <label for="name_scientific">Scientific name</label>
+                  <input type="text" class="form-control" id="name_scientific" name="name_scientific" value="<%- card.name_scientific %>">
+                </div>
+                <div class="form-group">
+                  <label for="name_finnish">Finnish name</label>
+                  <input type="text" class="form-control" id="name_finnish" name="name_finnish" value="<%- card.name_finnish %>">
+                </div>
+                <div class="form-group">
+                  <label for="name_finnish">English name</label>
+                  <input type="text" class="form-control" id="name_english" name="name_english" value="<%- card.name_english %>">
+                </div>
+
+                <button type="submit" class="btn btn-success btn-lg">Update</button>
+              </form>
+
+            </div>
+
+
+
+

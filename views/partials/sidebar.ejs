@@ -1,0 +1,25 @@
+
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+
+  <div id="sidebar" role="navigation">
+
+    <% if (req.options.controller == "collection" && req.options.action == "index") { %>
+    <%-partial('collectionInfo')%>
+    <% } %>
+
+    <% if (req.options.controller == "collection"
+    && (req.options.action == "index" || req.options.action == "find")) { %>
+    <%-partial('filters')%>
+    <% } %>
+
+    <% if (req.session.user) { %>
+    <%-partial('sidemenu', { actions: sails.config.actions })%>
+    <% } else { %>
+    <%-partial('user')%>
+    <% } %>
+
+    <%- partial('footer')%>
+
+  </div>
+
+</div><!--/span-->

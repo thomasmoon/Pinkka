@@ -1,0 +1,91 @@
+    <form role="form" action="/bird/update" method="post" enctype="multipart/form-data">
+
+        <div class="col-6 col-md-6 col-lg-6 col-sm-12 col-xs-12">
+          <div class="container well">
+            <h4>Edit Info</h4>
+            <input type="hidden" name="id" value="<%- card.id %>">
+            <div class="form-group">
+                <label for="name_scientific">Scientific name</label>
+                <input type="text" class="form-control" id="name_scientific" name="name_scientific" value="<%- card.name_scientific %>">
+            </div>
+            <div class="form-group">
+                <label for="name_finnish">Finnish name</label>
+                <input type="name" class="form-control" id="name_finnish" name="name_finnish" value="<%- card.name_finnish %>">
+            </div>
+            <div class="form-group">
+                <label for="name_finnish">English name</label>
+                <input type="name" class="form-control" id="name_english" name="name_english" value="<%- card.name_english %>">
+            </div>
+
+            <button type="submit" class="btn btn-success btn-lg">Submit</button>
+            </div>
+        </div>
+
+          <div class="images col-6 col-md-6 col-lg-6  col-sm-12 col-xs-12">
+            <div class="container well">
+              <h4>Image Upload</h4>
+
+              <div class="media">
+
+                <div class="form-group upload">
+                  <input type="file" id="images[]" name="images[]">
+                </div>
+
+                <div class="media-body">
+                  <div>
+                    <label for="imageSrcInfo[]">Source</label>
+                    <input type="name" id="imageSrcInfo[]" name="imageSrcInfo[]">
+                  </div>
+
+                  <div>
+                    <label for="imageSrcUrl[]">Url</label>
+                    <input type="name" id="imageSrcUrl[]" name="imageSrcUrl[]">
+                  </div>
+                </div>
+
+
+              </div>
+
+
+              <hr />
+
+              <h4>Existing Images</h4>
+
+              <% _.each(images, function (image) { %>
+
+                  <div class="media">
+
+                    <div class="pull-right">
+                      <% if (image.name) { %>
+                      <img class="media-object" src="/image/resize?imageName=<%= image.name.replace('.jpg', '-resized-75px.jpg') %>" alt="<%= image.card %>">
+                      <% } %>
+                      <a class="btn-default btn-xs" href="/image/destroy/<%= image.id %>">Delete</a>
+                    </div>
+
+                    <div class="media-body">
+                      <div>
+                        <label for="imageSrcInfo[]">Source</label>
+                        <input type="name" id="imageSrcInfo[]" name="imageSrcInfo[]" value="<%= image.sourceInfo?image.sourceInfo:'' %>">
+                      </div>
+
+                      <div>
+                        <label for="imageSrcUrl[]">Url</label>
+                        <input type="name" id="imageSrcUrl[]" name="imageSrcUrl[]" value="<%= image.sourceUrl?image.sourceUrl:'' %>">
+                      </div>
+
+                    </div>
+
+                  </div>
+
+              <% }) %>
+
+          </div>
+        </div>
+
+      <div class="clearfix"></div>
+    </form>
+
+    <hr>
+
+
+

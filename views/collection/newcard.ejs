@@ -1,0 +1,55 @@
+
+    <form role="form" action="/<%=req.body.collection.path%>/card/create" method="post" enctype="multipart/form-data">
+
+        <div class="col-6 col-md-6 col-lg-6 col-sm-12 col-xs-12">
+          <div class="container well">
+            <h4>New Card</h4>
+            <div class="form-group">
+                <label for="name_scientific">Scientific name</label>
+                <input type="text" class="form-control" id="name_scientific" name="name_scientific">
+            </div>
+            <div class="form-group">
+                <label for="name_finnish">Finnish name</label>
+                <input type="name" class="form-control" id="name_finnish" name="name_finnish">
+            </div>
+            <div class="form-group">
+                <label for="name_finnish">English name</label>
+                <input type="name" class="form-control" id="name_english" name="name_english">
+            </div>
+
+            <button type="submit" class="btn btn-success btn-lg">Submit</button>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-6 col-lg-6 col-sm-12 col-xs-12">
+          <div class="container well">
+            <h4>Image Upload</h4>
+            <div class="form-group images">
+              <div class="form-group ">
+                <input type="file" id="images[]" name="images[]">
+              </div>
+
+              <div class="form-group">
+                <label for="imageSrcInfo[]">Source</label>
+                <input type="name" class="form-control" id="imageSrcInfo[]" name="imageSrcInfo[]">
+              </div>
+
+              <div class="form-group">
+                <label for="imageSrcUrl[]">Url</label>
+                <input type="name" class="form-control" id="imageSrcUrl[]" name="imageSrcUrl[]">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="container col-12">
+
+        </div>
+    </form>
+
+    <hr>
+
+
+

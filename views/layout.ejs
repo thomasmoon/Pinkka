@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%- title %></title>
+
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+    <!--
+
+      Stylesheets
+      ========================
+
+      You can link any CSS, LESS, or image files in your `assets` directory
+      as you would normally: using <link/> tags.
+      
+    -->
+
+      <!-- Bootstrap core CSS -->
+    <link href="/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template
+    <link href="/bootstrap/examples/offcanvas/offcanvas.css" rel="stylesheet"> -->
+
+    <!-- PinkkaV2 custom styles -->
+    <link href="/styles/pinkkaV2.css" rel="stylesheet">
+
+
+    <!--
+
+      Support for LESS included by default
+      ================================================
+
+      LESS files are automatically compiled when they change using the Gruntfile
+      located in the top-level of this Sails app.  If you run into issues with styles
+      not reloading, check the Sails log output in your console for LESS compilation errors.
+      If necessary, shut down and then lift your app again.
+      
+    -->
+
+  </head>
+
+  <body>
+
+
+    <!--
+
+      Client-side Javascript
+      ========================
+
+      You can import any js files in your `assets` directory as you would 
+      normally: using <script></script> tags.
+
+      Here's an example of importing a few dependencies, in order:
+    -->
+
+
+    <!--
+
+      Looking for client-side CoffeeScript or TypeScript?
+      ================================================
+
+      CoffeeScript and TypeScript precompilation are not installed by default,
+      but if you'd like to mix those features in, it is straightforward to
+      `npm install` the relevant grunt community modules and modify your Gruntfile
+      to use them.
+
+    -->
+
+
+
+    <!--
+
+      Another way: The Asset Linker
+      ========================
+
+      Sails supports a Grunt-based asset linker, to automatically inject 
+      <link> and <script> tags, as well any client-side templates you're using
+      into your HTML layouts and views, respecting dependencies.
+
+      You created this Sails app with the asset linker disabled.
+      If you change your mind, check out the docs on the subject:
+      http://sailsjs.org/#!documentation/asset-management
+
+    -->
+
+    <%- partial('partials/header')%>
+
+    <div class="container">
+
+      <%-partial('partials/jumbotron')%>
+
+      <%-partial('partials/sidebar')%>
+
+      <%-partial('partials/content')%>
+
+    </div><!--/container-->
+
+
+
+            <!-- Bootstrap core JavaScript
+           ================================================== -->
+            <!-- Placed at the end of the document so the pages load faster -->
+            <!--<script src="/bootstrap/assets/js/jquery.js"></script>-->
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+            <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+            <script src="/bootstrap/js/typeahead.bundle.min.js"></script>
+            <!--<script src="/bootstrap/examples/offcanvas/offcanvas.js"></script>-->
+
+            <!--<script type="text/javascript" src="/js/socket.io.js"></script>
+                <script type="text/javascript" src="/js/sails.io.js"></script>
+                <script type="text/javascript" src="/js/app.js"></script>-->
+                <script type="text/javascript" src="/js/pinkka.js"></script>
+
+
+
+      </body>
+    </html>

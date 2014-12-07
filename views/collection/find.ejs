@@ -1,0 +1,52 @@
+
+
+    <div class="card col-12 col-sm-12">
+        <div class="col-6 pull-left">
+          <!-- Primary Language -->
+          <h3><%=eval("card.name_"+req.session.primaryLanguage.name)%></h3>
+
+          <!-- Other languages -->
+          <% _.each(sails.config.languages, function (language) {
+          if (language.short != req.session.primaryLanguage.short) {
+          %>
+          <h4><%=language.label%>: <em><%=eval("card.name_"+language.name)%></em></h4>
+          <%
+          }
+          }) %>
+        </div>
+
+        <div class="col-6 pull-right">
+          <% if (req.session.user) { %>
+                    <a href="/<%=sails.config.collection.path%>/card/edit/<%=card.id%>" class="button">
+                        <button class="btn btn-default"><span class="glyphicon glyphicon-edit"></span> Edit</button>
+                    </a>
+                    <a href="/<%= sails.config.collection.path %>/card/destroy/<%= card.id %>" class="button">
+                        <button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+                    </a>
+          <% } %>
+        </div>
+
+        <div class="clearfix"></div>
+
+      <% _.each(card.images, function (image) { %>
+        <div class="image-big col-12">
+          <img src="/image/resize?imageName=<%= image.name.replace('.','-resized-785px.') %>" width="100%"/>
+
+          <% if(image.sourceInfo) { %>
+          <div class="source">Photo:
+
+            <% if (image.sourceUrl) { %>
+            <a href="<%= image.sourceUrl %>" target="_blank">
+            <% } %>
+
+              <%= image.sourceInfo %>
+
+            <% if (image.sourceUrl) { %>
+              </a>
+            <% } %>
+
+          </div>
+          <% } %>
+        </div>
+      <% }) %>
+    </div>

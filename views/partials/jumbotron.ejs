@@ -1,0 +1,64 @@
+<%
+if (typeof sails.jumbotron !== 'undefined') {
+
+var jumbotron = sails.jumbotron
+%>
+
+<div class="jumbotron" style="background: #eee url(<%= jumbotron.bg %>) no-repeat scroll center center;">
+  <div class="blur">
+    <h1><%= jumbotron.title %></h1>
+
+    <% if(jumbotron.caption) { %>
+    <p><%=jumbotron.caption %></p>
+    <% } %>
+
+    <div class="speciesSearch input-group col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 row">
+      <input id="search" name="search" type="text" class="typeahead" placeholder="Search species database">
+
+      <!-- Large button group -->
+      <div class="lang btn-group">
+        <button class="btn btn-default btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+          <span class="primaryLanguage" data-name="<%=req.session.primaryLanguage.name%>"><%=req.session.primaryLanguage.label%></span>
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <!--<li role="presentation" class="dropdown-header">Primary language</li>-->
+          <% _.each(sails.config.languages, function (lang) { %>
+          <li id="<%=lang.name%>"><a href="#" role="menuitem" tabindex="-1" data-name="<%=lang.name%>"><%=lang.label%></a></li>
+          <% }) %>
+        </ul>
+      </div>
+
+      <!--
+
+      <select id="primaryLanguage" name="primaryLanguage" class="form-control" onchange="Cards.reloadSearch(this.value)">
+        <% _.each(sails.config.languages, function (lang) { %>
+        <option value="<%=lang.name%>" <%=req.session.primaryLanguage.short==lang.short?'selected':''%>><%=lang.label%></option>
+        <% }) %>
+      </select>
+
+      -->
+
+    </div><!-- /input-group -->
+
+  </div>
+
+
+
+  <% if(jumbotron.sourceInfo) { %>
+  <div class="source">Photo:
+
+    <% if (jumbotron.sourceUrl) { %>
+    <a href="<%= jumbotron.sourceUrl %>" target="_blank">
+      <% } %>
+
+      <%= jumbotron.sourceInfo %>
+
+      <% if (jumbotron.sourceUrl) { %>
+    </a>
+    <% } %>
+
+  </div>
+  <% } %>
+</div>
+<% /* end of jumbotron */ } %>

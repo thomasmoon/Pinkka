@@ -1,0 +1,24 @@
+<div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+
+<div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="/">PinkkaV2</a>
+</div>
+<div class="collapse navbar-collapse">
+    <ul class="nav navbar-nav">
+      <% _.each(sails.config.collections, function(collection) { %>
+        <li><a href="/<%= collection.path %>"><%= collection.name %></a></li>
+      <% }) %>
+    </ul>
+
+    <ul class="nav navbar-nav nav-right">
+      <% _.each(sails.config.navigation, function(page) { %>
+        <li><a href="/<%= page %>"><%= page %></a></li>
+      <% }) %>
+    </ul>
+</div><!-- /.nav-collapse -->
+</div><!-- /.navbar -->
