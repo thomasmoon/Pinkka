@@ -17,10 +17,10 @@
 
         <div class="col-6 pull-right">
           <% if (req.session.user) { %>
-                    <a href="/<%=sails.config.collection.path%>/card/edit/<%=card.id%>" class="button">
+                    <a href="/card/edit/<%=card.id%>" class="button">
                         <button class="btn btn-default"><span class="glyphicon glyphicon-edit"></span> Edit</button>
                     </a>
-                    <a href="/<%= sails.config.collection.path %>/card/destroy/<%= card.id %>" class="button">
+                    <a href="/card/destroy/<%= card.id %>" class="button">
                         <button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</button>
                     </a>
           <% } %>
