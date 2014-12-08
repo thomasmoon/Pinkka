@@ -19,6 +19,8 @@ module.exports = {
               return res.send(404);
           }
 
+      console.log(req.session)
+
           Card.find({type: sails.config.collection.model.toLowerCase()})
               .populate('images')
               .sort('name_'+req.session.primaryLanguage.name)
