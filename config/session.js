@@ -22,10 +22,10 @@ module.exports.session = {
 
   // Set the session cookie expire time
   // The maxAge is set by milliseconds, the example below is for 24 hours
-  //
-  // cookie: {
   //   maxAge: 24 * 60 * 60 * 1000
-  // }
+   cookie: {
+       httpOnly: false
+   },
 
 
   // In production, uncomment the following lines to set up a shared redis session store
