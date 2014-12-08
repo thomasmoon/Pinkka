@@ -41,7 +41,7 @@ var Cards = {
           queryTokenizer: Bloodhound.tokenizers.whitespace,
           prefetch: {
               cacheKey: 'cards_'+Cards.collection+'_'+Cards.primaryLang,
-              url: 'http://localhost:1337/listCards/'+Cards.collection,
+              url: '/listCards/'+Cards.collection,
               ttl: 0 // in milliseconds
           },
           limit: 1000
@@ -78,7 +78,7 @@ var Cards = {
     $('.lang ul.dropdown-menu li#'+lang).hide();
     if (!init) {
         $('.lang button span.primaryLanguage').html(label);
-        $.get("http://localhost:1337/user/setPrimaryLang?primaryLang="+lang);
+        $.get("/user/setPrimaryLang?primaryLang="+lang);
     }
   }
 };
