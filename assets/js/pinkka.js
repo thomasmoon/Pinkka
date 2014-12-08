@@ -78,7 +78,16 @@ var Cards = {
     $('.lang ul.dropdown-menu li#'+lang).hide();
     if (!init) {
         $('.lang button span.primaryLanguage').html(label);
-        $.get("/user/setPrimaryLang?primaryLang="+lang);
+        $.ajax({
+            type: "POST",
+            url: "/user/setPrimaryLang",
+            data: {primaryLang: lang},
+            dataType: 'json',
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true
+        });
     }
   }
 };

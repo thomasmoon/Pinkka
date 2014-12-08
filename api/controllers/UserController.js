@@ -95,6 +95,8 @@ module.exports = {
 
     setPrimaryLang: function (req, res) {
 
+        res.header('Access-Control-Allow-Credentials', 'true');
+
         Language.findOne({name: req.param("primaryLang")}).exec(function(err, primaryLang) {
 
             var alert = { type: "fail", msg: 'Unable to set primary language.' }
