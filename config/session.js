@@ -24,7 +24,7 @@ module.exports.session = {
   // The maxAge is set by milliseconds, the example below is for 24 hours
   //   maxAge: 24 * 60 * 60 * 1000
    cookie: {
-       maxAge: 24 * 60 * 60 * 1000,
+       maxAge: 86400000,
        httpOnly: false
    },
 
