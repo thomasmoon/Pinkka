@@ -19,7 +19,7 @@ module.exports = {
               return res.send(404);
           }
 
-      console.log(req.session)
+          console.log(req.session)
 
           Card.find({type: sails.config.collection.model.toLowerCase()})
               .populate('images')
@@ -277,19 +277,13 @@ module.exports = {
             q.type = req.param("collection");
         }
 
-        console.log(q);
-
         Card.find(q)
             .exec(function (err,cards) {
 
                     if (err) return res.send(err,500);
                     if (!cards) return res.send("No cards exist!", 404);
 
-                    console.log("return JSON list of cards");
-
-                    //return res.json(['Picea abies','Picea pungens','Picea breweriana','Picea stichensis','Picea engelmannii','Picea glauca','Picea omorika','Picea koraiensis','Picea orientalis'])
                     return res.json(cards);
-
             });
     }
 

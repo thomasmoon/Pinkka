@@ -1,6 +1,6 @@
 <div class="cards">
 
-    <% _.each(cards, function (card) { console.log(card) %>
+    <% _.each(cards, function (card) { %>
     <div class="card col-12 col-sm-12" onclick="window.location='/<%= sails.config.collection.path %>/card/<%= card.id %>'">
         <div class="thumb pull-left">
             <% if (card.images.length > 0) { %>
