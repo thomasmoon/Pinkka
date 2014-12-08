@@ -106,6 +106,7 @@ module.exports = {
 
             if (req.wantsJSON) {
                 // session should be saved when using ajax
+                console.log("session saved")
                 req.session.save();
                 return res.json(alert);
             } else {
