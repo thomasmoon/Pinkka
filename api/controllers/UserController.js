@@ -101,6 +101,9 @@ module.exports = {
 
             if (primaryLang) {
                 req.session.primaryLanguage = primaryLang;
+                console.log(primaryLang);
+
+                console.log(req.session)
                 alert = { type: "success", msg: 'Primary language set to <strong>'+primaryLang.label+'</strong>.' }
             }
 
