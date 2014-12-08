@@ -24,7 +24,6 @@ module.exports = function(req, res, next) {
             sails.config.languages = languages
 
             if (!req.session.primaryLanguage) {
-                console.log('primary language was not set');
                 req.session.primaryLanguage = languages[0]
             }
 

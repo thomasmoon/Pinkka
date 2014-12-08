@@ -9,8 +9,6 @@ fs = require("fs");
 
 var imagePath = "/assets/images/cards/"
 
-var primaryLanguage = ""
-
 module.exports = {
 
   index: function (req, res) {
@@ -19,7 +17,7 @@ module.exports = {
               return res.send(404);
           }
 
-          console.log(req.session)
+          console.log(req.session.primaryLanguage)
 
           Card.find({type: sails.config.collection.model.toLowerCase()})
               .populate('images')
