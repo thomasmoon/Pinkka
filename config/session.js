@@ -45,12 +45,11 @@ module.exports.session = {
 
 
   // Uncomment the following lines to use your Mongo adapter as a session store
-  // adapter: 'mongo',
-  //
+   adapter: 'mongo',
    host: 'localhost',
    port: 27017,
    db: 'sails',
-   collection: 'sessions'
+   collection: 'sessions',
   //
   // Optional Values:
   //
@@ -59,7 +58,7 @@ module.exports.session = {
   //
   // username: '',
   // password: '',
-  // auto_reconnect: false,
+  auto_reconnect: true
   // ssl: false,
   // stringify: true
 
