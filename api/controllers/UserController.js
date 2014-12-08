@@ -101,13 +101,12 @@ module.exports = {
 
             if (primaryLang) {
                 req.session.primaryLanguage = primaryLang;
-                console.log(primaryLang);
-
-                console.log(req.session)
                 alert = { type: "success", msg: 'Primary language set to <strong>'+primaryLang.label+'</strong>.' }
             }
 
             if (req.wantsJSON) {
+                // session should be saved when using ajax
+                req.session.save();
                 return res.json(alert);
             } else {
                 req.session.alert = alert;

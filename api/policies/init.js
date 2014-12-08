@@ -3,9 +3,6 @@
  */
 module.exports = function(req, res, next) {
 
-       console.log('From init:');
-       console.log(req.session);
-
        if (req.session.alert) {
            sails.alert = req.session.alert
            req.session.alert = null
