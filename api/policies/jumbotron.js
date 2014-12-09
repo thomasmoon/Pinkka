@@ -3,11 +3,7 @@
  */
 module.exports = function(req, res, next) {
 
-    var collection = req.param("collection");
-
-    console.log(collection);
-
-    switch (collection) {
+    switch (req.param("collection")) {
 
         case "Insects":
 
@@ -33,8 +29,6 @@ module.exports = function(req, res, next) {
 
         case "Moss":
 
-            console.log("Here we set Moss.");
-
             sails.jumbotron = {
                 title: "MER160",
                 caption: "Soiden ekohydrologia ja kasvillisuus",
@@ -42,8 +36,6 @@ module.exports = function(req, res, next) {
                 sourceInfo: "Noah Elhardt",
                 sourceUrl: "http://commons.wikimedia.org/wiki/File:Drosera_rotundifolia_ne3.jpg"
             }
-
-            console.log(sails.jumbotron);
             break;
 
         case "Plants":

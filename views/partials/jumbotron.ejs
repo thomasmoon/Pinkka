@@ -12,7 +12,7 @@ var jumbotron = sails.jumbotron
     <p><%=jumbotron.caption %></p>
     <% } %>
 
-    <div class="speciesSearch input-group col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 row">
+    <div class="speciesSearch input-group">
       <input id="search" name="search" type="text" class="typeahead" placeholder="Search species database">
 
       <!-- Large button group -->
@@ -46,7 +46,7 @@ var jumbotron = sails.jumbotron
 
 
   <% if(jumbotron.sourceInfo) { %>
-  <div class="source">Photo:
+  <div class="source hidden-xs">Photo:
 
     <% if (jumbotron.sourceUrl) { %>
     <a href="<%= jumbotron.sourceUrl %>" target="_blank">
