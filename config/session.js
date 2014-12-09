@@ -24,7 +24,6 @@ module.exports.session = {
   // The maxAge is set by milliseconds, the example below is for 24 hours
   //   maxAge: 24 * 60 * 60 * 1000
    cookie: {
-       maxAge: 86400000,
        httpOnly: false
    },
 
@@ -46,11 +45,11 @@ module.exports.session = {
 
 
   // Uncomment the following lines to use your Mongo adapter as a session store
-   //adapter: 'mongo',
-   //host: 'localhost',
-   //port: 27017,
-   //db: 'sails',
-   //collection: 'sessions',
+   adapter: 'mongo',
+   host: 'localhost',
+   port: 27017,
+   db: 'sails',
+   collection: 'sessions',
   //
   // Optional Values:
   //
@@ -59,7 +58,7 @@ module.exports.session = {
   //
   // username: '',
   // password: '',
-  auto_reconnect: false
+  auto_reconnect: true
   // ssl: false,
   // stringify: true
 
