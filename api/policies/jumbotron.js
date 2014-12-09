@@ -33,6 +33,8 @@ module.exports = function(req, res, next) {
 
         case "Moss":
 
+            console.log("Here we set Moss.");
+
             sails.jumbotron = {
                 title: "MER160",
                 caption: "Soiden ekohydrologia ja kasvillisuus",
