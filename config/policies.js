@@ -37,5 +37,11 @@ module.exports.policies = {
         'create': 'isAdmin',
         'index': ['isAdmin', 'init', 'navigation', 'collections', 'actions'],
         'new': 'isAdmin'
+    },
+    ImageController: {
+        '*': [],
+        'create': 'isAdmin',
+        'update': 'isAdmin',
+        'destroy': 'isAdmin'
     }
 };
