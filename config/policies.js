@@ -18,7 +18,7 @@ module.exports.policies = {
 
     // Default policy for all controllers and actions
     // (`true` allows public access)
-    '*': ['init', 'navigation', 'collections', 'actions', 'jumbotron'],
+    '*': ['init', 'navigation', 'collections', 'actions'],
 
     CollectionController: {
         '*': ['init', 'collections', 'navigation', 'collections', 'currentCollection', 'actions', 'jumbotron'],
