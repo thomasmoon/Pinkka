@@ -1,0 +1,243 @@
+/*
+ * Style twaks
+ * --------------------------------------------------
+ */
+body {
+    padding-top: 70px;
+}
+
+footer {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.jumbotron {
+    position: relative;
+    color: #fff;
+    padding:0 !important;
+}
+
+.jumbotron .blur {
+    background: transparent url('/images/caption-bg.png') no-repeat scroll -175px 0px;
+    padding: 24px 24px 24px 24px;
+
+}
+
+.jumbotron .blur h1, .jumbotron .blur p, .jumbotron .blur .row {
+    position: relative;
+    left: 0px;
+    top: 0px;
+}
+
+.jumbotron .blur h1 {
+  margin: 0;
+  top: 0px;
+}
+
+.jumbotron input, .jumbotron button {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.jumbotron .source {
+  position: absolute; right: 15px; bottom: 5px;
+  font-size: 0.8em;
+}
+
+.jumbotron .source a {
+  color: #fff;
+}
+
+h3 { margin-top: 0px; margin-bottom: 1em; }
+
+.sidebar-nav .glyphicon { margin-right: 15px; }
+.sidebar-nav li a { color: #000; }
+
+.card {
+    position: relative;
+    background-color: #ccc;
+    margin-bottom: 20px;
+    display: block;
+    padding: 20px;
+}
+
+.cards .card:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+.card h3            { margin-top: 10px; }
+.card a.button      { text-decoration: none; }
+
+.card .actions      { position: absolute; top: 20px; right: 20px; }
+.card .thumb        { width: 166px; height: 116px; padding: 8px; background-color: #fff; }
+.card .thumb .image   { width: 150px; height: 100px; margin: 0; overflow: hidden; }
+
+form h4       { margin-bottom: 20px; }
+form .images label    { font-size: 0.8em; width: 50px; }
+
+form .upload { }
+.media input { width: 200px; font-size: 0.8em; }
+
+
+.image-big { position: relative; margin-top: 20px; }
+.image-big .source { text-align: right; margin-top: 10px; }
+.image-big a { text-decoration: none; color: #333; }
+.image-big a:hover { text-decoration: underline; }
+
+/* Buttons */
+button .glyphicon { margin-right: 4px; margin-bottom: 4px;}
+form .btn-default {  }
+
+.btn-toolbar { margin-bottom: 15px; }
+
+.nav-right {
+  float: right;
+}
+
+@media screen and (max-width: 767px) {
+    body {
+        padding-top:50px;
+    }
+
+    .jumbotron,
+    body>.container {
+        border-radius: 0 !important;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .nav-right {
+      float: none;
+      border-top: 1px solid #333;
+    }
+}
+
+.image-info {
+
+  margin-bottom: 1em;
+}
+
+.tooltip {
+  z-index: 1000;
+}
+
+.thumbnail {
+  padding: 10px;
+}
+
+.thumbnail img {
+  margin-bottom: 10px;
+}
+
+.thumbnail .actions, .thumbnail .editActions{
+  text-align: center;
+}
+
+.speciesSearch {
+  vertical-align: top;
+  margin-top: 1em;
+}
+
+.speciesSearch .btn-group {
+  vertical-align: top;
+}
+
+.speciesSearch .btn-lg {
+  width: 90px;
+  height: 40px;
+  padding: 8px 8px;
+  line-height: 24px;
+  font-size: 14px;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 9px;
+}
+
+.twitter-typeahead {
+  color: #000;
+  vertical-align: top;
+}
+.typeahead,
+.tt-query,
+.tt-hint {
+  width: 245px;
+  height: 40px;
+  padding: 8px 12px;
+  font-size: 18px;
+  line-height: 40px;
+  border: 2px solid #ccc;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 9px;
+  outline: none;
+  vertical-align: top;
+  margin: 0px;
+  margin-right: 5px;
+}
+
+.typeahead:focus {
+  border: 2px solid #0097cf;
+}
+
+.tt-query {
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.tt-hint {
+  color: #999;
+  display: block;
+}
+
+.tt-dropdown-menu {
+  position: relative;
+  width: 245px;
+  margin-top: 0px;
+  padding: 0;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+.tt-dropdown-menu h4 {
+  padding: 0px 10px 5px 10px;
+  border-bottom: 2px solid #ccc;
+  font-size: 0.8em;
+  margin-bottom: 0;
+  margin-top: 3px;
+}
+
+.tt-suggestions {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 0;
+}
+
+.tt-suggestion {
+}
+
+.tt-suggestion.tt-cursor {
+
+}
+
+.tt-suggestion p {
+  width: 100%;
+  margin: 0 0 0 0px;
+  display: block;
+  padding: 3px 12px 3px 12px;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.tt-suggestion.tt-cursor p {
+  color: #fff;
+  background-color: #0097cf;
+}
