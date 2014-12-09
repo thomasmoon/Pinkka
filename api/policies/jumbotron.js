@@ -42,6 +42,8 @@ module.exports = function(req, res, next) {
                 sourceInfo: "Noah Elhardt",
                 sourceUrl: "http://commons.wikimedia.org/wiki/File:Drosera_rotundifolia_ne3.jpg"
             }
+
+            console.log(sails.jumbotron);
             break;
 
         case "Plants":
