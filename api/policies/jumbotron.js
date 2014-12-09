@@ -3,9 +3,11 @@
  */
 module.exports = function(req, res, next) {
 
-    console.log(req.param("collection"));
+    var collection = req.param("collection");
 
-    switch (req.param("collection")) {
+    console.log(collection);
+
+    switch (collection) {
 
         case "Insects":
 
